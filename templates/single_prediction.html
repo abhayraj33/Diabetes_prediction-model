@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="glass-container result-page">
+
+        <h1>🧾 Prediction Result</h1>
+
+        <div class="result-card {% if result == 'Diabetic' %}danger{% else %}safe{% endif %}">
+            <h2>{{ result }}</h2>
+            <p>Risk: {{ prob }}%</p>
+        </div>
+
+        <!-- 🔥 Chart Canvas -->
+        <canvas id="myChart" width="300" height="300"></canvas>
+
+        <a href="/" class="btn">🔙 Try Again</a>
+
+    </div>
+
+<script>
+    const prob = {{ prob }};
+    const safe = 100 - prob;
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Diabetic Risk', 'Safe'],
+            datasets: [{
+                data: [prob, safe],
+                backgroundColor: ['#dc3545', '#28a745'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

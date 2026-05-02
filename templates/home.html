@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="glass-container">
+        <h1>🩺 Diabetes Predictor</h1>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+            <div class="grid">
+                <input type="text" name="Pregnancies" placeholder="Pregnancies" required>
+                <input type="text" name="Glucose" placeholder="Glucose" required>
+                <input type="text" name="BloodPressure" placeholder="Blood Pressure" required>
+                <input type="text" name="SkinThickness" placeholder="Skin Thickness" required>
+                <input type="text" name="Insulin" placeholder="Insulin" required>
+                <input type="text" name="BMI" placeholder="BMI" required>
+                <input type="text" name="DiabetesPedigreeFunction" placeholder="DPF" required>
+                <input type="text" name="Age" placeholder="Age" required>
+            </div>
+
+            <button type="submit">🚀 Predict Now</button>
+        </form>
+
+        <div class="info">
+            <h3>Normal Ranges</h3>
+            <p>Glucose: 70–99</p>
+            <p>BP: 80–120</p>
+            <p>BMI: 18.5–24.9</p>
+        </div>
+    </div>
+</body>
+</html>

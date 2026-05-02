@@ -1,0 +1,168 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY FIX */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    /* IMPORTANT FIX */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px; /* mobile ke liye */
+}
+
+/* MAIN CONTAINER */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+    /* FIXED WIDTH ISSUE */
+    width: 100%;
+    max-width: 420px;
+
+    text-align: center;
+    color: white;
+
+    animation: fadeIn 1s ease-in-out;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.glass-container:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADING */
+h1 {
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #00c6ff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* INPUT */
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 100%; /* IMPORTANT */
+}
+
+/* INPUT FOCUS */
+input:focus {
+    border: 2px solid #00c6ff;
+    box-shadow: 0 0 10px rgba(0,198,255,0.5);
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* RESULT CARD */
+.result-card {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* COLORS */
+.safe {
+    background: linear-gradient(45deg, #28a745, #43e97b);
+}
+
+.danger {
+    background: linear-gradient(45deg, #dc3545, #ff6a6a);
+}
+
+/* RESULT TEXT */
+.result-card p {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+/* LINK BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* CHART */
+canvas {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+/* INFO */
+.info {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE FIX */
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-container {
+        padding: 20px;
+    }
+}
